@@ -17,8 +17,8 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertIn(row_text, [row.text for row in rows])
 
     def test_can_start_a_list_and_retrieve_it_later(self):
-        #性感的艾丽听说有一个很酷的待办事项应用
-        #早上，她睁开惺忪的睡眼半裸着酥胸去看了这个应用的首页
+        # 性感的艾丽听说有一个很酷的待办事项应用
+        # 早上，她睁开惺忪的睡眼半裸着酥胸去看了这个应用的首页
         self.browser.get(self.live_server_url)
 
         #她抬起修长的手臂伸了个懒腰，注意到网页的标题和头部都包含“To-Do”这个词
@@ -26,7 +26,7 @@ class NewVisitorTest(LiveServerTestCase):
         header_text = self.browser.find_element_by_tag_name('h1').text
         self.assertIn('To-Do', header_text)
 
-        #应用邀请性感美丽的她输入一个待办事项
+        # 应用邀请性感美丽的她输入一个待办事项
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertEqual(
                 inputbox.get_attribute('placeholder'),
@@ -79,7 +79,7 @@ class NewVisitorTest(LiveServerTestCase):
         self.assertNotEqual(francis_list_url, aili_list_url)
 
         # 这个页面还是没有艾丽的清单
-        page_text = self.browser.find_element_by_tag_name('body')
+        page_text = self.browser.find_element_by_tag_name('body').text
         self.assertNotEqual('买',page_text)
         self.assertIn('Buy milk', page_text)
 
