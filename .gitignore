@@ -1,3 +1,7 @@
 superlists/db.sqlite3
 superlists/__pycache__
 *.pyc
+virtualenv
+static
+static/*
+virtualenv/bin virtualenv/lib virtualenv/pip-selfcheck.json
