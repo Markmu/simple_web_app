@@ -15,7 +15,7 @@ class ItemValidationTest(FunctionalTest):
         self.assertEqual(error.text, 'You can\'t have an empty list item.')
 
         # 她输入一些文字，然后再次提交，这次没问题了
-        self.browser.find_element_by_id('id_new_item').send_keys('some words')
+        self.browser.find_element_by_id('id_new_item').send_keys('some words\n')
         self.check_for_row_in_list_table('1: some words')
 
         # 她贱不索索的又提交了一个空的待办事项
@@ -27,6 +27,6 @@ class ItemValidationTest(FunctionalTest):
         self.assertEqual(error.text, 'You can\'t have an empty list item.')
 
         # 输入文字之后就没有问题了
-        self.browser.find_element_by_id('id_new_item').send_keys('some other words')
+        self.browser.find_element_by_id('id_new_item').send_keys('some other words\n')
         self.check_for_row_in_list_table('1: some words')
         self.check_for_row_in_list_table('2: some other words')
