@@ -17,7 +17,7 @@ class NewVisitorTest(FunctionalTest):
         self.assertIn('To-Do', header_text)
 
         # 应用邀请性感美丽的她输入一个待办事项
-        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox = self.get_item_input_box()
         self.assertEqual(
                 inputbox.get_attribute('placeholder'),
                 'Enter a to-do item'
@@ -36,7 +36,7 @@ class NewVisitorTest(FunctionalTest):
         # 页面中又显示了一个文本框，可以输入其它待办事项
         # 她输入了穿情趣内衣发自拍吸引网友
         # 没错，艾丽就是这么骚！！！
-        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox = self.get_item_input_box()
         inputbox.send_keys('穿上情趣内衣发自拍')
         inputbox.send_keys(Keys.ENTER)
 
@@ -59,7 +59,7 @@ class NewVisitorTest(FunctionalTest):
         self.assertNotIn('穿上', page_text)
 
         # 弗朗西斯输入一个待办事项
-        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox = self.get_item_input_box()
         inputbox.send_keys('Buy milk')
         inputbox.send_keys(Keys.ENTER)
 
